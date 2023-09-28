@@ -22,7 +22,24 @@ class Competition {
     }
 
 
-}
+    public function addToRunner($c , $t){
+        
+        $runner = $this->arrayasociativo[$c];
+        try{
+            $runner->addRace();
+        }catch{
+            
+        }
+
+
+
+       
+    }
+
+
+
+    }
+
 
 ?>
 
