@@ -30,21 +30,16 @@ public function settiempos($t){
     $this->tiempos = $t;
 }
 
-//m ethods
+//methods
 public function addRace($t){
-        if(sizeof($this->tiempos)<5){
-            array_push($this->tiempos,$t);
-        }elseif(sizeof($this->tiempos>=5) ){
+        if(sizeof($this->tiempos)>=5){
             throw new Exception ("el corredor ya corrio 5 carreras");
         }else if($t<5){
             throw new Exception ("la carrera es demasiado corta");
+        }else{
+            array_push($this->tiempos,$t);
         }
 }
-
-
-
-
-
 
 }
 
