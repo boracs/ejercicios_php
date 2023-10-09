@@ -1,6 +1,5 @@
 <?php
 
-
 class Movie{
     private $name;
     private $ISAN;
