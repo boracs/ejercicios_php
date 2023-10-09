@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <label for="nombre">Nombre Usuario</label>
-    <input type="text" name="usuario">
+    <form action="Main.php" method ="GET">
+        <label for="nombre">Nombre Usuario</label>
+        <input type="text" name="usuario">
+        <input type="submit">
+    </form>
 </body>
 </html>
