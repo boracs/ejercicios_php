@@ -1,13 +1,7 @@
 <?php
-     require "Movies.php";
+     require "Movie.php";
      class MoviesManager{
         private  $movies;
-
-
-
-
-        
-
 
      }
 
