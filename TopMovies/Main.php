@@ -1,10 +1,19 @@
+<?php
+if(isset($_GET['usuario'] ) ){
+    $usuario = $_GET['usuario'];
+    setcookie('persona',$usuario,time()+24*3600);
+}else{
+    $usuario = $_COOKIE['persona'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
     <style>
         form{
             display: flex;
@@ -15,9 +24,12 @@
 </head>
 
 <body>
-    <h1>LISTA DE PELICULAS </h1>
-    <hr>
-    <form action="">
+    <header>
+    <h1>LISTA DE PELICULAS DE <?php echo $usuario ?></h1>
+    <hr>    
+    </header>
+  
+    <form action="Main.php">
         <label for="movie">Movie</label>
         <input type="text" name="movie">
         <label for="movie">ISAN</label>
@@ -38,3 +50,4 @@
 </body>
 
 </html>
+

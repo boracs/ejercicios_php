@@ -1,0 +1,57 @@
+<?php
+class Square{
+    private $side;
+
+    public function __construct($side){
+        if($side < 0){
+            throw new Exception("The side can't be negative<br>");
+        }else{
+            $this->side = $side;
+        }
+        echo"Creado<br>";
+    }
+
+    public function getArea(){
+        return $this->side * $this->side;
+    }
+
+    public function getSide(){
+        return $this->side;
+    }
+}
+
+
+function createArray(){
+    $sides = array();
+    for($i = 0; $i<=5;$i++){
+        $sides[] = rand(-5,5);
+    }
+    return $sides;
+}
+
+function hasNegative($sides){
+    foreach($sides as $value){
+        if($value < 0){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+$sides = [];
+
+while(!hasNegative($sides)){
+    $sides = createArray();
+}
+
+foreach($sides as $num){
+    try{
+        $s = new Square($num);
+        echo "The area of the square with the side " . $s->getSide() . " is " . $s->getArea() . "<br>";
+    }catch(Exception $e){
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+
