@@ -21,17 +21,16 @@ public static function create_Movie_With_Atribute($name, $isan, $year, $punctuat
 
 public static function create_Movie_With_String($string){
     $moviesArray = explode(",",$string);
-   print_r($moviesArray);
-   $name =$moviesArray[0];
-   $isan =$moviesArray[1];
-   $year =$moviesArray[2];
-   $punctuation =$moviesArray[3];
+    $name =$moviesArray[0];
+    $isan =$moviesArray[1];
+    $year =$moviesArray[2];
+    $punctuation =$moviesArray[3];
 
     return new Movie($name, $isan, $year, $punctuation);
 }
 
 public function showMovie(){
-    echo "$this->name , $this->isan  ,  $this->year ,  $this->punctuation ";
+    echo "$this->name , $this->isan  ,  $this->year ,  $this->punctuation/";
 }
 
 

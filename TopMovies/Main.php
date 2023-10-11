@@ -9,11 +9,27 @@ if(isset($_GET['usuario'] ) ){
 }
  
 
-if(isset($_GET['movie']) && ($_GET['isan']) && ($_GET['year']) && ($_GET['puntuacion']) &&  ($_GET['hiddeninput']=="")){
+if(isset($_GET['movie']) && ($_GET['isan']) && ($_GET['year']) && ($_GET['puntuacion']) &&  empty($_GET['hiddeninput'])){
+    echo"hiden input esta vacio";
+    $ManagerPeliculas = new MoviesManager;
     $pelicula = Movie::create_Movie_With_Atribute($_GET['movie'],$_GET['isan'],$_GET['year'],$_GET['puntuacion']);
-    $pelicula->showMovie();
-}else if(isset($_GET['movie']) && ($_GET['isan']) && ($_GET['year']) && ($_GET['puntuacion']) && ($_GET['hiddeninput'])){
+    $ManagerPeliculas->añadirPelicula($pelicula);
+    $ManagerPeliculas->showPeliculas();
+}else if(isset($_GET['movie']) && ($_GET['isan']) && ($_GET['year']) && ($_GET['puntuacion']) && ($_GET['hiddeninput'])!=""){
+    echo"hiden input esta lleno";
+    $ManagerPeliculas = new MoviesManager;
+    $inputvalue = $_GET['hiddeninput'];
+    $arrayPeliculas = explode("/",$inputvalue);
+    foreach($arrayPeliculas as $value ){
+       $pelicula = Movie::create_Movie_With_String($value);
+       $ManagerPeliculas->añadirPelicula($pelicula);
+    }
 
+
+
+    $pelicula = Movie::create_Movie_With_Atribute($_GET['movie'],$_GET['isan'],$_GET['year'],$_GET['puntuacion']);
+    $ManagerPeliculas->añadirPelicula($pelicula);
+    $ManagerPeliculas->showPeliculas();
 }
   
 
@@ -65,7 +81,7 @@ if(isset($_GET['movie']) && ($_GET['isan']) && ($_GET['year']) && ($_GET['puntua
         </select>
         <br><br>
         <input type="submit" value="Enviar">
-        <input type="hidden" name="hiddeniput" value=" <?php echo $datospeliculas; ?>">
+        <input type="hidden" name="hiddeninput" value=" <?php   $ManagerPeliculas->showPeliculas(); ?>">
     </form>
 </body>
 </html>

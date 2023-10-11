@@ -3,6 +3,24 @@
      class MoviesManager{
         private  $movies;
 
+
+      public function __construct(){
+         $this->movies = array();
+      }
+
+
+      public function añadirPelicula($movie){
+         array_push($this->movies, $movie);
+      }
+
+      public function showPeliculas(){
+         foreach($this->movies as $value){
+            $value->showMovie();
+         }
+      }
+
+
+
      }
 
 
