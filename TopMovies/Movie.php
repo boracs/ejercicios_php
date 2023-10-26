@@ -31,7 +31,7 @@ public static function create_Movie_With_String($string)
 
 public function showMovie()
 {
-    echo "<li> ".$this->name .",". $this->isan ." , ". $this->year." , ". $this->punctuation."</li> |";
+    echo $this->name .",". $this->isan .",". $this->year.",". $this->punctuation."|";
 }
 
 
